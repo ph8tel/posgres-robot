@@ -13,6 +13,7 @@ def handle_command(direction):
 def stopn_now(d):
     db.stopper()
     return True
+port = os.environ.get("PORT", 17995)
 
-run(host='0.0.0.0', port=44321, debug = True)
+run(host='0.0.0.0', port=port, debug = True)
 
