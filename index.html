@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yardbot Controls</title>
+</head>
+<body>
+    <button id="forward" onmousedown="mover(this)" onmouseup="stopper()">forward</button>
+    <button id="back" onmousedown="mover(this)" onmouseup="stopper()">back</button>
+    <button id="left" onmousedown="mover(this)" onmouseup="stopper()">left</button>
+    <button id="right" onmousedown="mover(this)" onmouseup="stopper()">right</button>
+    <script>
+        let mover = (e) => {
+            console.log(e.id)
+            fetch("/cmd/" + e.id)
+            .then(r => console.log(r))
+        }
+        let stopper = () => {
+            fetch("/cmd/stop")
+        }
+    </script>
+    
+
+</body>
+</html>
